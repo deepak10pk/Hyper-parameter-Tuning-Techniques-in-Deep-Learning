@@ -47,6 +47,11 @@ W = W – learning rate *VdW
 
 b = b – learning rate * Vdb
 
+ # How to select beta?
+  * The momentum (beta) must be higher to smooth out the update because we give more weight to the past gradients.
+  *  It is recommended to use the default value for β = 0.9 but if required, it can be tuned between 0.8 to 0.999.
+  *  Momentum takes past gradients into account to smooth out the steps of gradient descent. It can be applied with batch gradient    descent, mini-batch gradient descent or stochastic gradient descent.
+
 
    
       
