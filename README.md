@@ -17,7 +17,7 @@
 # Gradient Descent with Momentum
   * Mini-batch gradient descent makes a parameter update with just a subset of examples, the direction of the update has some variance, and so the path taken by mini-batch gradient descent will “oscillate” toward convergence. Gradient Descent with Momentum considers the past gradients to smooth out the update. It computes an exponentially weighted average of your gradients, and then use that gradient to update your weights instead. It works faster than the standard gradient descent algorithm.
   
-   # How does it work?  
+   # How does it work?  ![title](Fig1-2-768x151.png)   ![title](Fig2-2.png)
 
 
    
