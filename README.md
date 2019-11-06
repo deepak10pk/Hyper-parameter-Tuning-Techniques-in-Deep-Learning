@@ -20,9 +20,34 @@
    # How does it work? 
    Consider an example where we are trying to optimize a cost function which has contours like below and the red dot denotes the position of the local optima (minimum).![title](Fig1-2-768x151.png)
   
-  We start gradient descent from point ‘A’ and after one iteration of gradient descent we may end up at point ‘B’, the other side of the ellipse. Then another step of gradient descent may end up at point ‘C’. With each iteration of gradient descent, we move towards the local optima with up and down oscillations. If we use larger learning rate then the vertical oscillation will have higher magnitude. So, this vertical oscillation slows down our gradient descent and prevents us from using a much larger learning rate. ![title](Fig2-2.png)
+  We start gradient descent from point ‘A’ and after one iteration of gradient descent we may end up at point ‘B’, the other side of the ellipse. Then another step of gradient descent may end up at point ‘C’. With each iteration of gradient descent, we move towards the local optima with up and down oscillations. If we use larger learning rate then the vertical oscillation will have higher magnitude. So, this vertical oscillation slows down our gradient descent and prevents us from using a much larger learning rate.
+  ![title](Fig2-2.png)
   
- By using the exponentially weighted average values of dW and db, we tend to average out the oscillations in the vertical direction closer to zero as they are in both directions (positive and negative). Whereas, on the horizontal direction, all the derivatives are pointing to the right of the horizontal direction, so the average in the horizontal direction will still be pretty big. It allows our algorithm to take more straight forwards path towards local optima and damp out vertical oscillations. Due to this reason, the algorithm will end up at local optima with a few iterations.
+ By using the exponentially weighted average values of dW and db, we tend to average out the oscillations in the vertical direction closer to zero as they are in both directions (positive and negative). Whereas, on the horizontal direction, all the derivatives are pointing to the right of the horizontal direction, so the average in the horizontal direction will still be pretty big. It allows our algorithm to take more straight forwards path towards local optima and damp out vertical oscillations. Due to this reason, the algorithm will end up at local optima with a few iterations.   ![title](Fig3-2-768x167.png) 
+ 
+#  How to Implement?
+
+During backward propagation, we use dW and db to update our parameters W and b as follows:
+
+W = W – learning rate * dW
+
+b = b – learning rate * db
+
+In momentum, instead of using dW and db independently for each epoch, we take the exponentially weighted averages of dW and db.
+
+VdW = β x VdW + (1 – β) x dW
+
+Vdb = β x Vdb + (1 – β) x db
+
+Where beta ‘β’ is another hyperparameter called momentum and ranges from 0 to 1. It sets the weight between the average of previous values and the current value to calculate the new weighted average.
+
+After calculating exponentially weighted averages, we will update our parameters.
+
+W = W – learning rate *VdW
+
+b = b – learning rate * Vdb
+
+
    
       
      
