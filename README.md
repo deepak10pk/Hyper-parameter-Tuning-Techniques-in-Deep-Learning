@@ -13,6 +13,13 @@
    * In SGD, since only one sample from the dataset is chosen at random for each iteration, the path taken by the algorithm to reach the minima is usually noisier than your typical Gradient Descent algorithm. But that doesn’t matter all that much because the path taken by the algorithm does not matter, as long as we reach the minima and with significantly shorter training time.
    # Path taken by Batch Gradient Descent – ->>  ![title](gdp.png)
    # Path taken by Stochastic Gradient Descent –> ![title](sgd-1.png)
+
+# Gradient Descent with Momentum
+  * Mini-batch gradient descent makes a parameter update with just a subset of examples, the direction of the update has some variance, and so the path taken by mini-batch gradient descent will “oscillate” toward convergence. Gradient Descent with Momentum considers the past gradients to smooth out the update. It computes an exponentially weighted average of your gradients, and then use that gradient to update your weights instead. It works faster than the standard gradient descent algorithm.
+  
+   # How does it work?  
+
+
    
            
     
