@@ -5,7 +5,7 @@
   * Starting at the top of the mountain, we take our first step downhill in the direction specified by the negative gradient. Next we recalculate the negative gradient (passing in the coordinates of our new point) and take another step in the direction it specifies. We continue this process iteratively until we get to the bottom of our graph, or to a point where we can no longer move downhill–a local minimum ---Please refer to following figure:
       ![title](gd.png)
  
- # Stochastic Gradient Descent (SGD)
+ # 2. Stochastic Gradient Descent (SGD)
    * The word ‘stochastic‘ means a system or a process that is linked with a random probability. Hence, in Stochastic Gradient Descent, a few samples are selected randomly instead of the whole data set for each iteration.
    * In Gradient Descent, there is a term called “batch” which denotes the total number of samples from a dataset that is used for calculating the gradient for each iteration.
    *  In typical Gradient Descent optimization, like Batch Gradient Descent, the batch is taken to be the whole dataset. Although, using the whole dataset is really useful for getting to the minima in a less noisy or less random manner, but the problem arises when our datasets get really huge.
@@ -14,7 +14,7 @@
    # Path taken by Batch Gradient Descent – ->>  ![title](gdp.png)
    # Path taken by Stochastic Gradient Descent –> ![title](sgd-1.png)
 
-# Gradient Descent with Momentum
+# 3. Gradient Descent with Momentum
   * Mini-batch gradient descent makes a parameter update with just a subset of examples, the direction of the update has some variance, and so the path taken by mini-batch gradient descent will “oscillate” toward convergence. Gradient Descent with Momentum considers the past gradients to smooth out the update. It computes an exponentially weighted average of your gradients, and then use that gradient to update your weights instead. It works faster than the standard gradient descent algorithm.
   
    # How does it work? 
@@ -52,10 +52,10 @@ b = b – learning rate * Vdb
   *  It is recommended to use the default value for β = 0.9 but if required, it can be tuned between 0.8 to 0.999.
   *  Momentum takes past gradients into account to smooth out the steps of gradient descent. It can be applied with batch gradient    descent, mini-batch gradient descent or stochastic gradient descent.
 
-# RMSProp
+# 4. RMSProp
  * The RMSprop optimizer is similar to the gradient descent algorithm with momentum. The RMSprop optimizer restricts the oscillations in the vertical direction. Therefore, we can increase our learning rate and our algorithm could take larger steps in the horizontal direction converging faster. The difference between RMSprop and gradient descent is on how the gradients are calculated.
    
- # ADAM
+ # 5. ADAM
   * Adam can be looked at as a combination of RMSprop and Stochastic Gradient Descent with momentum. It uses the squared gradients to scale the learning rate like RMSprop and it takes advantage of momentum by using moving average of the gradient instead of gradient itself like SGD with momentum
  ## Lets look how it works--
   *Adam as combining the advantages of two other extensions of stochastic gradient descent. Specifically:
