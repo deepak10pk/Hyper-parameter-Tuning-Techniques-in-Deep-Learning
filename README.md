@@ -52,9 +52,23 @@ b = b – learning rate * Vdb
   *  It is recommended to use the default value for β = 0.9 but if required, it can be tuned between 0.8 to 0.999.
   *  Momentum takes past gradients into account to smooth out the steps of gradient descent. It can be applied with batch gradient    descent, mini-batch gradient descent or stochastic gradient descent.
 
-
+# RMSProp
+ * The RMSprop optimizer is similar to the gradient descent algorithm with momentum. The RMSprop optimizer restricts the oscillations in the vertical direction. Therefore, we can increase our learning rate and our algorithm could take larger steps in the horizontal direction converging faster. The difference between RMSprop and gradient descent is on how the gradients are calculated.
    
-      
+ # ADAM
+  * Adam can be looked at as a combination of RMSprop and Stochastic Gradient Descent with momentum. It uses the squared gradients to scale the learning rate like RMSprop and it takes advantage of momentum by using moving average of the gradient instead of gradient itself like SGD with momentum
+ ## Lets look how it works--
+  *Adam as combining the advantages of two other extensions of stochastic gradient descent. Specifically:
+
+  1. Adaptive Gradient Algorithm (AdaGrad) that maintains a per-parameter learning rate that improves performance on problems with sparse gradients (e.g. natural language and computer vision problems).
+  2. Root Mean Square Propagation (RMSProp) that also maintains per-parameter learning rates that are adapted based on the average of recent magnitudes of the gradients for the weight (e.g. how quickly it is changing). This means the algorithm does well on online and non-stationary problems (e.g. noisy).
+Adam realizes the benefits of both AdaGrad and RMSProp.
+
+Instead of adapting the parameter learning rates based on the average first moment (the mean) as in RMSProp, Adam also makes use of the average of the second moments of the gradients (the uncentered variance).
+
+Specifically, the algorithm calculates an exponential moving average of the gradient and the squared gradient, and the parameters beta1 and beta2 control the decay rates of these moving averages.
+
+The initial value of the moving averages and beta1 and beta2 values close to 1.0 (recommended) result in a bias of moment estimates towards zero. This bias is overcome by first calculating the biased estimates before then calculating bias-corrected estimates.
      
 
 
